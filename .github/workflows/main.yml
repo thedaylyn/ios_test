@@ -12,6 +12,8 @@ jobs:
 
     steps:
 
+      # 1. Git LFS 바이너리까지 온전히 체크아웃
+
       - uses: actions/checkout@v4
 
         with:
@@ -26,6 +28,7 @@ jobs:
 
 
 
+      # 2. 메인 및 프레임워크 모두 서명 없이 빌드
 
       - name: Build Unsigned App
 
@@ -66,6 +69,8 @@ jobs:
           zip -r app-unsigned.ipa Payload
 
 
+
+      # 4. 결과물 업로드
 
       - name: Upload Artifact
 
